@@ -2,11 +2,11 @@
 using TaskManagment.Application.DTOs;
 using TaskManagment.Application.Servises;
 using TaskManagment.Domain.Enums;
+
 namespace TaskManagment.API.Controllers
-
-
-
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class TaskController : ControllerBase
     {
 

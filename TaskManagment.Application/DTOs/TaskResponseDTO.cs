@@ -8,9 +8,7 @@ namespace TaskManagment.Application.DTOs
 {
     public class TaskResponseDTO
     {
-        // الغرض: ده الـ DTO اللي بيرجع البيانات للعميل (API → Client) لما يطلبوا معلومات عن مهمة
-        // بيحتوي على كل الخصائص المهمة اللي العميل ممكن يحتاجها
-        // الغرض: ده اللي بيرجع من الـ API للـ Client بعد ما يعملوا Create / Get / Update
+        
        public string Title { get; set; }
        public string Description { get; set; }    
        public DateTime DueDate { get; set; }

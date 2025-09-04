@@ -24,21 +24,13 @@ namespace TaskManagment.Infrastructure.Repository
 
         public async Task<TaskItem?> GetByIdAsync(int id)
         {
-            // 1. بتجيب المهمة من الداتا بيز بناءً على الـ Id
-            // 2. بتتأكد إن المهمة مش متحذوفة (IsDeleted = false) 
-            // 3. بترجع المهمة لو لقتها، أو null لو مش لقتها
-            // 4. بتستخدم EF Core عشان تتعامل مع الداتا بيز بطريقة سهلة وفعالة
 
             return await _context.Tasks.FirstOrDefaultAsync(t => t.Id == id && !t.IsDeleted);
         }
 
         public async Task<IEnumerable<TaskItem>> GetAllAsync(string title, TasksStatus? Status, int page, int pageSize)
-        { // شرح الفانكشن دي:
-            // 1. بتاخد باراميترز للفلترة والصفحة والحجم  الفلترة بتشمل العنوان والحالة
-            // 2. بتبني استعلام ديناميكي بناءً على الفلترة اللي اتقدمت
-            // 3. بتستخدم الـ Skip و Take عشان تعمل Pagination
-            // 4. بترجع ليستة من TaskItem اللي بتطابق الفلترة
-            var query = _context.Tasks.AsQueryable(); // مهم AsQueryable
+        { 
+            var query = _context.Tasks.AsQueryable(); 
             query = query.Where(t => !t.IsDeleted);
 
             if (!string.IsNullOrEmpty(title))
